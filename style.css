@@ -1973,3 +1973,15 @@ body {
     font-size: 28px;
   }
 }
+
+
+@media (max-width: 760px) {
+  .navbar {
+    justify-content: center;
+  }
+
+  .nav-brand {
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
