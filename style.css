@@ -1082,6 +1082,69 @@ body {
   margin-top: auto;
 }
 
+/* ANIMATION TITRES OFFRES */
+
+.pricing-card h3 {
+  position: relative;
+  width: fit-content;
+  transition:
+    text-shadow 0.35s ease,
+    transform 0.35s ease,
+    letter-spacing 0.35s ease;
+}
+
+.pricing-card:hover h3 {
+  transform: translateY(-1px);
+  letter-spacing: 0.25px;
+
+  text-shadow:
+    0 0 5px rgba(0, 170, 255, 0.35),
+    0 0 10px rgba(124, 58, 237, 0.22);
+}
+
+.pricing-card h3::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+
+  width: 100%;
+  height: 2px;
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #7c3aed,
+    #00aaff,
+    transparent
+  );
+
+  transform: scaleX(0);
+  transform-origin: left;
+  opacity: 0;
+
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+}
+
+.pricing-card:hover h3::after {
+  transform: scaleX(1);
+  opacity: 0.55;
+  animation: titleLightMove 1.4s linear infinite;
+}
+
+@keyframes titleLightMove {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+
 .maintenance-switch,
 .maintenance-float {
   display: none !important;
@@ -1170,6 +1233,96 @@ body {
   z-index: 1;
 }
 
+/* ANIMATION MAINTENANCE - différente des offres conception */
+
+.maintenance-card {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.maintenance-card .badge {
+  position: static;
+  display: inline-block;
+  width: fit-content;
+  margin-bottom: 14px;
+}
+
+.maintenance-title-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.maintenance-title-row .badge {
+  position: static;
+  flex-shrink: 0;
+  margin-bottom: 0;
+  margin-top: 4px;
+}
+
+.maintenance-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+
+  background: conic-gradient(
+    from 180deg,
+    transparent,
+    rgba(0, 170, 255, 0.45),
+    rgba(124, 58, 237, 0.45),
+    transparent 35%
+  );
+
+  opacity: 0;
+  transform: rotate(0deg);
+  transition: opacity 0.35s ease;
+}
+
+.maintenance-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 25px;
+
+  background: rgba(7, 8, 18, 0.88);
+  z-index: 0;
+}
+
+.maintenance-card:hover {
+  transform: translateY(-8px);
+  border-color: transparent;
+
+  box-shadow:
+    0 25px 70px rgba(0, 170, 255, 0.12),
+    0 15px 40px rgba(124, 58, 237, 0.12);
+}
+
+.maintenance-card:hover::before {
+  opacity: 1;
+  animation: maintenanceRotate 2.2s linear infinite;
+}
+
+.maintenance-card h3,
+.maintenance-card p,
+.maintenance-card div,
+.maintenance-card ul {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes maintenanceRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 @keyframes sideButtonGlow {
   0%, 100% {
     box-shadow: 0 10px 35px rgba(0, 170, 255, 0.08);
@@ -1224,6 +1377,95 @@ body {
 .financing-next span {
   position: relative;
   z-index: 1;
+}
+
+/* ANIMATION FINANCEMENT - sobre et différente */
+
+.financing-card {
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    background 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.financing-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at var(--x, 50%) var(--y, 50%),
+      rgba(0, 170, 255, 0.16),
+      transparent 34%
+    );
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.financing-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(0, 170, 255, 0.34);
+  background: rgba(255, 255, 255, 0.06);
+
+  box-shadow:
+    inset 0 0 35px rgba(0, 170, 255, 0.045),
+    0 22px 60px rgba(0, 0, 0, 0.22);
+}
+
+.financing-card:hover::before {
+  opacity: 1;
+}
+
+.financing-card h3,
+.financing-card p {
+  position: relative;
+  z-index: 1;
+}
+
+/* ANIMATION BLOC QUESTION FINANCEMENT */
+
+.financing-note {
+  transition:
+    background 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease,
+    opacity 0.35s ease;
+}
+
+.financing-note:hover {
+  background: rgba(0, 0, 0, 0.22);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.35);
+}
+
+.financing-note:hover h3,
+.financing-note:hover p {
+  opacity: 0.45;
+}
+
+.financing-note a {
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.financing-note:hover a {
+  transform: translateX(4px);
+  color: white;
+  border-color: rgba(0, 170, 255, 0.75);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.95), rgba(0, 170, 255, 0.95));
+  box-shadow:
+    0 0 18px rgba(0, 170, 255, 0.35),
+    0 0 34px rgba(124, 58, 237, 0.22);
 }
 
 .contact-section {
@@ -1424,3 +1666,310 @@ body {
   color: white;
 }
 
+/* ============================= */
+/* RESPONSIVE GLOBAL AVENCODE */
+/* ============================= */
+
+/* TABLETTE */
+@media (max-width: 1024px) {
+  .navbar {
+    width: calc(100% - 32px);
+    height: 64px;
+    padding: 0 22px;
+    top: 18px;
+    margin-top: 18px;
+  }
+
+  .nav-brand {
+    font-size: 19px;
+  }
+
+  .nav-links {
+    gap: 16px;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+  }
+
+  .hero,
+  .discover-section,
+  .creations-section,
+  .pricing-section,
+  .financing-section,
+  .contact-section {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .hero h1 {
+    font-size: clamp(40px, 7vw, 68px);
+  }
+
+  .discover-grid,
+  .pricing-grid,
+  .financing-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .showroom {
+    grid-template-columns: 1fr;
+  }
+
+  .showroom-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .maintenance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .custom-offer,
+  .financing-note {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .maintenance-to-conception {
+    position: static;
+    transform: none;
+    width: fit-content;
+    margin-left: auto;
+    margin-bottom: 28px;
+  }
+
+  .maintenance-to-conception:hover {
+    transform: translateX(5px);
+  }
+}
+
+/* MOBILE */
+@media (max-width: 760px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .navbar {
+    width: calc(100% - 24px);
+    height: auto;
+    min-height: 60px;
+    padding: 14px 18px;
+    top: 12px;
+    margin-top: 12px;
+  }
+
+  .nav-brand {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    min-height: 100vh;
+    padding-top: 90px;
+    align-items: center;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 {
+    font-size: clamp(36px, 12vw, 52px);
+    line-height: 1.08;
+    letter-spacing: -1.4px;
+  }
+
+  .btn-discover,
+  .preview-button,
+  .pricing-button,
+  .contact-button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .discover-section,
+  .creations-section,
+  .pricing-section,
+  .financing-section,
+  .contact-section {
+    min-height: auto;
+    padding: 110px 6% 70px;
+  }
+
+  .discover-section h2,
+  .creations-heading h2,
+  .pricing-heading h2,
+  .financing-heading h2,
+  .contact-heading h2 {
+    font-size: clamp(32px, 10vw, 44px);
+    line-height: 1.08;
+    letter-spacing: -1.4px;
+  }
+
+  .discover-section > .discover-content > p,
+  .creations-heading > p:last-child,
+  .pricing-heading > p:last-child,
+  .financing-heading p:last-child,
+  .contact-heading p:last-child {
+    font-size: 16px;
+  }
+
+  .discover-grid {
+    margin-top: 42px;
+    grid-template-columns: 1fr;
+  }
+
+  .discover-card {
+    padding: 26px;
+  }
+
+  .creations-heading {
+    margin-bottom: 32px;
+  }
+
+  .showroom-list {
+    grid-template-columns: 1fr;
+  }
+
+  .showroom-item {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .showroom-preview {
+    min-height: 430px;
+    border-radius: 24px;
+  }
+
+  .preview-info {
+    left: 24px;
+    right: 24px;
+    bottom: 28px;
+  }
+
+  .preview-info h3 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+
+  #previewText {
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .creations-next {
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  .pricing-grid,
+  .financing-grid,
+  .maintenance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-card,
+  .maintenance-card,
+  .financing-card {
+    padding: 24px;
+  }
+
+  .pricing-title-row,
+  .maintenance-title-row {
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .badge {
+    font-size: 9px;
+    padding: 6px 9px;
+  }
+
+  .price {
+    font-size: 34px;
+  }
+
+  .custom-offer,
+  .financing-note {
+    padding: 24px;
+  }
+
+  .pricing-next-side,
+  .pricing-next,
+  .maintenance-back,
+  .maintenance-next,
+  .financing-next {
+    justify-content: center;
+  }
+
+  .maintenance-block {
+    min-height: auto;
+    margin-top: 90px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .contact-form {
+    padding: 22px;
+    border-radius: 24px;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 14px;
+    padding: 14px;
+  }
+
+  .brand-name {
+    font-size: clamp(34px, 12vw, 58px);
+    gap: 10px;
+  }
+
+  .loading-line {
+    max-width: 220px;
+  }
+}
+
+/* PETITS TÉLÉPHONES */
+@media (max-width: 430px) {
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .discover-card h3,
+  .custom-offer h3,
+  .financing-note h3 {
+    font-size: 22px;
+  }
+
+  .pricing-card h3,
+  .maintenance-card h3 {
+    font-size: 30px;
+  }
+
+  .showroom-preview {
+    min-height: 400px;
+  }
+
+  .preview-button {
+    padding: 13px 18px;
+  }
+
+  .financing-card h3 {
+    font-size: 28px;
+  }
+}
