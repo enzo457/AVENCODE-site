@@ -327,7 +327,15 @@
       </p>
     </div>
 
-    <form class="contact-form">
+    <form
+  class="contact-form"
+  action="https://formsubmit.co/contact@avencode.fr"
+  method="POST"
+>
+  <input type="hidden" name="_subject" value="Nouvelle demande depuis AVENCODE">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_next" value="https://www.avencode.fr">
       <div class="form-row">
         <div class="form-group">
           <label for="nom">Nom</label>
