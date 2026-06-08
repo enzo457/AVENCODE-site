@@ -1985,3 +1985,139 @@ body {
     justify-content: center;
   }
 }
+
+.footer {
+  padding: 38px 6%;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  background: #070812;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255,255,255,0.68);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.footer-links a:hover {
+  color: #00aaff;
+}
+
+.footer p {
+  color: rgba(255,255,255,0.45);
+  font-size: 13px;
+}
+
+/* PAGES JURIDIQUES */
+
+.legal-page {
+  min-height: 100vh;
+  padding: 120px 8% 90px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(124, 58, 237, 0.14), transparent 35%),
+    radial-gradient(circle at 80% 80%, rgba(0, 170, 255, 0.12), transparent 35%),
+    #070812;
+  color: white;
+}
+
+.legal-page h1 {
+  max-width: 900px;
+  margin-bottom: 45px;
+  font-size: clamp(40px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -2px;
+}
+
+.legal-content {
+  max-width: 900px;
+  padding: 36px;
+  border-radius: 28px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.045);
+  backdrop-filter: blur(18px);
+  color: #d6d6e4;
+  line-height: 1.8;
+}
+
+.legal-content h2 {
+  margin-top: 34px;
+  margin-bottom: 14px;
+  color: white;
+  font-size: 24px;
+}
+
+.legal-content h2:first-of-type {
+  margin-top: 0;
+}
+
+.legal-content p {
+  margin-bottom: 18px;
+}
+
+.legal-content a {
+  color: #00aaff;
+  text-decoration: none;
+}
+
+.legal-content a:hover {
+  text-decoration: underline;
+}
+
+.legal-back {
+  display: inline-flex;
+  margin-bottom: 40px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: white;
+  font-size: 13px;
+  font-weight: 900;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.055);
+}
+
+.legal-back:hover {
+  color: #00aaff;
+  border-color: rgba(0,170,255,0.45);
+}
+
+@media (max-width: 760px) {
+  .legal-page {
+    padding: 90px 6% 60px;
+  }
+
+  .legal-content {
+    padding: 24px;
+  }
+}
+
+/* CENTRAGE DES PAGES JURIDIQUES */
+
+.legal-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.legal-content {
+  text-align: left;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legal-back {
+  align-self: center;
+}
